@@ -46,9 +46,9 @@ void y_task(void *params) {
     while (1) {
         adc_select_input(1);
         int raw_value = adc_read();
-        printf("Raw Y: %d\n", raw_value);  // Debug: imprimir valor bruto
+        //printf("Raw Y: %d\n", raw_value);  // Debug: imprimir valor bruto
         adc_reading.val = process_adc_reading(raw_value);
-        printf("Processed Y: %d\n", adc_reading.val);  // Debug: imprimir valor processado
+        //printf("Processed Y: %d\n", adc_reading.val);  // Debug: imprimir valor processado
         xQueueSend(xQueueADC, &adc_reading, portMAX_DELAY);
         vTaskDelay(pdMS_TO_TICKS(100));
     }
